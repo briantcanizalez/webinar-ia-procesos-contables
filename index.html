@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Webinar IA Aplicada a Procesos Contables — Grupo Consiti</title>
+<meta name="description" content="Webinar gratuito para contadores: registra tus compras en Odoo Factura IA y genera el Anexo 3 de compras en automático. Lunes 3 de agosto, 6:00 PM (El Salvador)." />
+<meta name="keywords" content="Grupo Consiti, Odoo Factura IA, Anexo 3 de compras, IVA, contadores, El Salvador, factura electrónica" />
+<meta property="og:title" content="Webinar IA Aplicada a Procesos Contables — Grupo Consiti" />
+<meta property="og:description" content="Deja de digitar compras a mano. Aprende a cargar tus compras en Odoo Factura IA desde el JSON del DTE y generar el Anexo 3 en automático." />
+<meta property="og:type" content="website" />
+<link rel="icon" type="image/png" href="assets/isotipo.png" />
+<link rel="preload" as="image" href="assets/consiti-imagologo-blanco.png" fetchpriority="high" />
+<link rel="preload" as="image" href="assets/odoo-factura-ia-blanco.png" fetchpriority="high" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --morado: #5216E7;
+    --morado-hover: #3e10b0;
+    --lavanda: #DFD2FF;
+    --blanco: #FFFFFF;
+    --gris-texto: #c5c5c5;
+    --fondo-oscuro: #0a0618;
+    --amarillo: #FFDD00;        /* Acento promocional Odoo Factura IA (CTAs) */
+    --amarillo-hover: #ffe84d;
+    --exito: #22c55e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    background: #000;
+    color: var(--blanco);
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding-top: 92px; /* compensador header fixed */
+  }
+
+  .container { width: 100%; max-width: 100%; margin: 0 auto; padding: 0 48px; box-sizing: border-box; }
+
+  /* ====== TOP BAR FIXED ====== */
+  .top-bar {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(82, 22, 231, 0.3);
+    background: rgba(0, 0, 0, 0.72);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    backdrop-filter: blur(14px) saturate(140%);
+    position: fixed; top: 0; left: 0; right: 0; width: 100vw;
+    z-index: 1000;
+    transition: padding 0.25s ease, background 0.25s ease;
+  }
+  .top-bar.scrolled {
+    padding: 10px 0;
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.5);
+  }
+  .top-bar .container {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px; max-width: 1400px;
+  }
+  .logo-consiti img { height: 48px; width: auto; display: block; }
+  .top-bar.scrolled .logo-consiti img { height: 40px; }
+  .partner-mark { display: flex; align-items: center; gap: 12px; color: var(--gris-texto); font-size: 13px; }
+  .partner-mark span { text-transform: uppercase; letter-spacing: 0.5px; font-size: 11px; }
+  .partner-mark img { height: 34px; width: auto; display: block; }
+  .top-bar.scrolled .partner-mark img { height: 28px; }
+
+  /* ====== HERO ====== */
+  .hero {
+    position: relative;
+    padding: 70px 0 60px;
+    background:
+      radial-gradient(ellipse at 85% 20%, rgba(82, 22, 231, 0.35) 0%, transparent 55%),
+      radial-gradient(ellipse at 15% 80%, rgba(82, 22, 231, 0.18) 0%, transparent 50%);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
+    background-size: 24px 24px; pointer-events: none;
+  }
+  #particles-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.25fr 1fr; gap: 56px; align-items: center;
+    position: relative; z-index: 2; max-width: 1400px; margin: 0 auto;
+  }
+
+  .tag-webinar {
+    display: inline-block;
+    background: rgba(82, 22, 231, 0.25);
+    color: var(--lavanda);
+    font-size: 13px; font-weight: 500;
+    padding: 6px 14px; border-radius: 20px;
+    border: 1px solid rgba(82, 22, 231, 0.5);
+    margin-bottom: 22px;
+    letter-spacing: 0.5px; text-transform: uppercase;
+  }
+  .hero h1 {
+    font-size: 50px; line-height: 1.1; font-weight: 700; color: var(--blanco);
+    margin-bottom: 24px; letter-spacing: -1.2px;
+  }
+  .hero h1 .acento {
+    background: linear-gradient(90deg, #8b5cf6, #5216E7, #a78bfa);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  .pill-ia {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 10px 20px; border-radius: 30px;
+    font-size: 15px; font-weight: 600; color: var(--blanco);
+    margin-bottom: 30px; letter-spacing: 0.2px;
+  }
+  .pill-ia .sparkle { width: 22px; height: 22px; flex-shrink: 0; display: block; }
+
+  .hero-meta {
+    display: flex; flex-wrap: wrap; gap: 26px; margin-bottom: 34px;
+    font-size: 15px; color: var(--gris-texto);
+  }
+  .hero-meta div { display: flex; align-items: center; gap: 10px; }
+  .hero-meta strong { color: var(--blanco); font-weight: 600; }
+  .hero-meta svg { width: 20px; height: 20px; color: var(--lavanda); flex-shrink: 0; }
+
+  .btn-cta {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    background: var(--amarillo); color: #000; text-decoration: none;
+    font-weight: 700; font-size: 17px;
+    padding: 18px 38px; border-radius: 48px;
+    border: 0; cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 10px 30px rgba(255, 221, 0, 0.35);
+    letter-spacing: 0.2px;
+  }
+  .btn-cta:hover {
+    background: var(--amarillo-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 36px rgba(255, 221, 0, 0.5);
+  }
+
+  /* ====== TARJETA DE EVENTO EN HERO ====== */
+  .hero-visual { position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; }
+  .evento-card {
+    width: 100%; max-width: 420px;
+    background: rgba(10, 6, 24, 0.85);
+    border: 1px solid rgba(82, 22, 231, 0.45);
+    border-radius: 20px;
+    padding: 32px 30px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    text-align: center;
+  }
+  .evento-badge {
+    display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.4px;
+    color: #000; background: var(--amarillo); padding: 6px 14px; border-radius: 20px; margin-bottom: 22px;
+  }
+  .evento-fecha { display: flex; align-items: baseline; justify-content: center; gap: 10px; line-height: 1; }
+  .evento-fecha .dia { font-size: 72px; font-weight: 800; letter-spacing: -2px; color: var(--blanco); }
+  .evento-fecha .mes { font-size: 28px; font-weight: 700; color: var(--lavanda); }
+  .evento-hora { font-size: 15px; color: var(--gris-texto); margin-top: 6px; margin-bottom: 22px; }
+  .evento-lista { list-style: none; text-align: left; display: grid; gap: 12px; margin-bottom: 8px; }
+  .evento-lista li { position: relative; padding-left: 26px; font-size: 14px; color: var(--blanco); }
+  .evento-lista li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--amarillo); font-weight: 700; }
+  .evento-nota { font-size: 12px; color: var(--gris-texto); margin-top: 16px; }
+
+  /* ====== SECCIONES ====== */
+  .seccion { padding: 72px 0; max-width: 1400px; margin: 0 auto; }
+  .seccion h2 { font-size: 36px; font-weight: 700; color: var(--blanco); margin-bottom: 16px; letter-spacing: -0.5px; text-align: center; }
+  .seccion .lead { font-size: 18px; color: var(--gris-texto); text-align: center; max-width: 760px; margin: 0 auto 50px; }
+  .seccion h2 .acento { background: linear-gradient(90deg, #8b5cf6, #5216E7, #a78bfa); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  /* Beneficios */
+  .beneficios-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .beneficio { text-align: center; padding: 28px 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(82,22,231,0.18); border-radius: 14px; }
+  .beneficio .icon-wrap { width: 56px; height: 56px; background: rgba(82, 22, 231, 0.2); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+  .beneficio svg { width: 28px; height: 28px; color: var(--lavanda); }
+  .beneficio h3 { font-size: 17px; margin-bottom: 8px; }
+  .beneficio p { color: var(--gris-texto); font-size: 14px; }
+
+  /* Casos / agenda */
+  .casos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .caso { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(82, 22, 231, 0.2); padding: 24px; border-radius: 14px; transition: all 0.25s ease; }
+  .caso:hover { background: rgba(82, 22, 231, 0.08); border-color: rgba(82, 22, 231, 0.5); transform: translateY(-4px); }
+  .caso .num { width: 36px; height: 36px; background: var(--morado); color: var(--blanco); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; border-radius: 10px; margin-bottom: 16px; }
+  .caso h3 { color: var(--blanco); font-size: 16px; margin-bottom: 8px; }
+  .caso p { color: var(--gris-texto); font-size: 14px; line-height: 1.55; }
+
+  /* Ponente */
+  .ponente-wrap { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 160px 1fr; gap: 32px; align-items: center; background: linear-gradient(135deg, rgba(82,22,231,0.12), rgba(82,22,231,0.04)); border: 1px solid rgba(82,22,231,0.35); border-radius: 18px; padding: 32px; }
+  .ponente-foto { width: 160px; height: 160px; border-radius: 50%; background: rgba(82,22,231,0.2); border: 2px solid rgba(82,22,231,0.5); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .ponente-foto img { width: 100%; height: 100%; object-fit: cover; }
+  .ponente-foto .ini { font-size: 48px; font-weight: 800; color: var(--lavanda); }
+  .ponente-info .rol { color: var(--lavanda); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .ponente-info h3 { font-size: 24px; margin-bottom: 6px; }
+  .ponente-info p { color: var(--gris-texto); font-size: 15px; }
+  .ponente-info .cargo-ventas { color: var(--lavanda); font-size: 15px; font-weight: 500; }
+
+  /* Audiencia */
+  .audiencia { background: linear-gradient(135deg, rgba(82, 22, 231, 0.15), rgba(82, 22, 231, 0.05)); border: 1px solid rgba(82, 22, 231, 0.4); padding: 40px; border-radius: 18px; max-width: 1000px; margin: 0 auto; }
+  .audiencia h3 { color: var(--blanco); font-size: 22px; margin-bottom: 20px; text-align: center; }
+  .audiencia ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .audiencia li { position: relative; padding-left: 28px; color: var(--blanco); font-size: 15px; }
+  .audiencia li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--morado); font-weight: 700; }
+
+  /* CTA final */
+  .cta-final { padding: 70px 0; text-align: center; background: radial-gradient(ellipse at center, rgba(82, 22, 231, 0.25) 0%, transparent 70%); }
+  .cta-final h2 { font-size: 34px; font-weight: 700; color: var(--blanco); margin-bottom: 16px; letter-spacing: -0.5px; }
+  .cta-final p { color: var(--gris-texto); font-size: 16px; margin-bottom: 32px; }
+  .cta-final .micro { font-size: 12px; color: var(--gris-texto); margin-top: 16px; }
+
+  /* Footer */
+  footer { padding: 30px 0; border-top: 1px solid rgba(82, 22, 231, 0.2); text-align: center; font-size: 13px; color: var(--gris-texto); }
+  footer a { color: var(--lavanda); text-decoration: none; }
+
+  /* Impacto antes/después */
+  .impacto { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; max-width: 720px; margin: 0 auto 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(82,22,231,0.3); border-radius: 16px; padding: 26px 32px; }
+  .impacto .lado { text-align: center; }
+  .impacto .lado .t { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gris-texto); margin-bottom: 8px; }
+  .impacto .lado .v { font-size: 32px; font-weight: 800; line-height: 1; letter-spacing: -0.5px; }
+  .impacto .lado.manual .v { color: var(--gris-texto); }
+  .impacto .lado.ia .v { color: var(--amarillo); }
+  .impacto .lado .d { font-size: 12px; color: var(--gris-texto); margin-top: 6px; }
+  .impacto .flecha { color: var(--morado); font-size: 30px; font-weight: 700; }
+  .impacto-nota { text-align: center; font-size: 11px; color: #6b6b7a; max-width: 720px; margin: 0 auto 50px; }
+
+  /* Reveal animations */
+  .js-anim .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.85s cubic-bezier(0.22,0.61,0.36,1), transform 0.85s cubic-bezier(0.22,0.61,0.36,1); will-change: opacity, transform; }
+  .js-anim .reveal.is-visible { opacity: 1; transform: translate(0,0); }
+  @media (prefers-reduced-motion: reduce) { .js-anim .reveal { opacity: 1; transform: none; transition: none; } }
+
+  img, svg { max-width: 100%; height: auto; }
+
+  /* ====== RESPONSIVE ====== */
+  @media (max-width: 1100px) {
+    .hero h1 { font-size: 44px; }
+    .casos-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 900px) {
+    body { padding-top: 76px; }
+    .container { padding: 0 20px; }
+    .top-bar { padding: 12px 0; }
+    .logo-consiti-text { font-size: 22px; }
+    .hero { padding: 36px 0 32px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+    .hero h1 { font-size: 28px; letter-spacing: -0.4px; margin-bottom: 16px; line-height: 1.2; }
+    .hero-meta { justify-content: center; gap: 14px; }
+    .pill-ia { margin-bottom: 18px; font-size: 13px; padding: 7px 14px; }
+    .tag-webinar { font-size: 11px; padding: 4px 10px; margin-bottom: 14px; }
+    .evento-card { margin: 0 auto; max-width: 100%; }
+    .seccion { padding: 40px 0; }
+    .seccion h2 { font-size: 24px; }
+    .seccion .lead { font-size: 14px; margin-bottom: 26px; }
+    .beneficios-grid { grid-template-columns: 1fr; }
+    .casos-grid { grid-template-columns: 1fr; gap: 12px; }
+    .ponente-wrap { grid-template-columns: 1fr; text-align: center; justify-items: center; gap: 20px; padding: 28px 20px; }
+    .audiencia { padding: 24px 20px; }
+    .audiencia ul { grid-template-columns: 1fr; }
+    .cta-final { padding: 44px 0; }
+    .cta-final h2 { font-size: 24px; }
+    .impacto { grid-template-columns: 1fr; gap: 12px; padding: 22px 18px; }
+    .impacto .flecha { transform: rotate(90deg); }
+    .impacto .lado .v { font-size: 26px; }
+  }
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 24px; }
+    .btn-cta { width: 100%; padding: 14px 20px; font-size: 15px; }
+    .hero-meta { flex-direction: column; gap: 8px; align-items: center; }
+  }
+  @media (max-width: 400px) {
+    .container { padding: 0 14px; }
+    .hero h1 { font-size: 21px; }
+    .evento-card { padding: 24px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== TOP BAR ====== -->
+<header class="top-bar">
+  <div class="container">
+    <div class="logo-consiti">
+      <img src="assets/consiti-imagologo-blanco.png" alt="Grupo Consiti"
+           loading="eager" fetchpriority="high" decoding="async" />
+    </div>
+    <div class="partner-mark">
+      <span>Presenta</span>
+      <img src="assets/odoo-factura-ia-blanco.png" alt="Odoo Factura IA"
+           loading="eager" fetchpriority="high" decoding="async" />
+    </div>
+  </div>
+</header>
+
+<!-- ====== HERO + FORMULARIO ====== -->
+<section class="hero">
+  <canvas id="particles-canvas"></canvas>
+  <div class="container" style="position: relative; z-index: 2;">
+    <div class="hero-grid">
+      <div>
+        <span class="tag-webinar">IA Aplicada a Procesos Contables · Gratis para contadores</span>
+        <h1>Deja de digitar compras a mano y genera el <span class="acento">Anexo 3</span> en automático</h1>
+        <div class="pill-ia">
+          <svg class="sparkle" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="iaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#8b5cf6"/>
+                <stop offset="60%" stop-color="#5216E7"/>
+                <stop offset="100%" stop-color="#a78bfa"/>
+              </linearGradient>
+            </defs>
+            <path fill="url(#iaGrad)" d="M12 2 C 12.8 7.2 16.8 11.2 22 12 C 16.8 12.8 12.8 16.8 12 22 C 11.2 16.8 7.2 12.8 2 12 C 7.2 11.2 11.2 7.2 12 2 Z"/>
+          </svg>
+          <span>Función Carga de Compras con IA</span>
+        </div>
+        <div class="hero-meta">
+          <div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <strong>Lunes 3 de agosto, 2026</strong>
+          </div>
+          <div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <strong>6:00 PM</strong> (El Salvador)
+          </div>
+          <div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+            Google Meet en vivo
+          </div>
+          <div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 22h14M5 2h14M6 2v5a6 6 0 0 0 12 0V2M6 22v-5a6 6 0 0 1 12 0v5"/></svg>
+            60 minutos
+          </div>
+        </div>
+        <a href="https://docs.google.com/forms/d/1f0pU_2bqHw9QIE7HnckhlJTXpG076q-tUt4gS746YVA/viewform" class="btn-cta" id="btn-registro-hero" target="_blank" rel="noopener">Reservar mi cupo gratis</a>
+      </div>
+
+      <!-- TARJETA DE EVENTO -->
+      <div class="hero-visual">
+        <div class="evento-card">
+          <span class="evento-badge">Webinar en vivo · Gratis</span>
+          <div class="evento-fecha">
+            <span class="dia">03</span>
+            <span class="mes">AGO</span>
+          </div>
+          <div class="evento-hora">6:00 PM · hora El Salvador</div>
+          <ul class="evento-lista">
+            <li>60 minutos, en vivo por Google Meet</li>
+            <li>Demo real: registro manual vs. carga con IA</li>
+            <li>Anexo 3 de compras generado en automático</li>
+          </ul>
+          <p class="evento-nota">Registro abierto hasta el 2 de agosto.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== EL PROBLEMA / BENEFICIOS ====== -->
+<section class="seccion">
+  <div class="container">
+    <h2 class="reveal">7 de cada 10 contadores todavía <span class="acento">digitan compras a mano</span></h2>
+    <p class="lead reveal">Cada mes de declaración de IVA, registrar las compras a mano y armar el Anexo 3 consume horas. Te mostramos cómo Odoo Factura IA lo hace por ti — y cómo, con el Plan Professional, se automatizan todos tus anexos y libros.</p>
+    <div class="impacto reveal">
+      <div class="lado manual">
+        <div class="t">Registro manual</div>
+        <div class="v">~2.5 horas</div>
+        <div class="d">50 compras al mes</div>
+      </div>
+      <div class="flecha">→</div>
+      <div class="lado ia">
+        <div class="t">Con Carga de Compras con IA</div>
+        <div class="v">~5 minutos</div>
+        <div class="d">las mismas 50 compras</div>
+      </div>
+    </div>
+    <p class="impacto-nota reveal">Estimación referencial — se ajusta con los datos reales de tu operación.</p>
+    <div class="beneficios-grid">
+      <div class="beneficio reveal">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3>Cierra el IVA más rápido</h3>
+        <p>Carga decenas de compras en minutos leyendo el JSON del DTE. Deja de digitarlas una por una en plena temporada de declaración.</p>
+      </div>
+      <div class="beneficio reveal">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3>Menos errores, menos estrés</h3>
+        <p>El proveedor, los montos y los impuestos vienen directo de la factura electrónica. Sin re-teclear, sin cuadrar cifras a mano.</p>
+      </div>
+      <div class="beneficio reveal">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+        </div>
+        <h3>Anexo 3 sin armarlo a mano</h3>
+        <p>Con las compras bien registradas, el Anexo 3 de compras se genera solo cada mes. Cumplimiento inmediato ante Hacienda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== LO QUE VERÁS EN VIVO ====== -->
+<section class="seccion">
+  <div class="container">
+    <h2 class="reveal">Lo que verás en vivo</h2>
+    <p class="lead reveal">Una sesión práctica: comparamos la forma tediosa contra la forma con IA, en un ambiente real de Odoo Factura IA.</p>
+    <div class="casos-grid">
+      <div class="caso reveal">
+        <div class="num">01</div>
+        <h3>El costo de hacerlo a mano</h3>
+        <p>Cuánto tiempo real pierdes al mes registrando compras manualmente y armando el anexo.</p>
+      </div>
+      <div class="caso reveal">
+        <div class="num">02</div>
+        <h3>Registro manual, paso a paso</h3>
+        <p>Registramos una compra a mano, campo por campo, para que veas dónde se va el tiempo.</p>
+      </div>
+      <div class="caso reveal">
+        <div class="num">03</div>
+        <h3>Carga con IA desde el JSON</h3>
+        <p>Cargamos las compras desde el JSON del DTE con la función Carga de Compras con IA. El contraste es directo.</p>
+      </div>
+      <div class="caso reveal">
+        <div class="num">04</div>
+        <h3>Anexo 3 generado solo</h3>
+        <p>Generamos el Anexo 3 de compras completo, listo para tu declaración de IVA.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PONENTE ====== -->
+<section class="seccion">
+  <div class="container">
+    <h2 class="reveal">Evento dirigido por</h2>
+    <div class="ponente-wrap reveal">
+      <div class="ponente-foto">
+        <img src="assets/briant.jpg" alt="Briant Canizalez" loading="lazy" decoding="async" />
+      </div>
+      <div class="ponente-info">
+        <div class="rol">GenAI · Google Cloud Certified</div>
+        <h3>Briant Canizalez</h3>
+        <p class="cargo-ventas">Líder de Ventas en Odoo Factura IA</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== AUDIENCIA ====== -->
+<section class="seccion">
+  <div class="container">
+    <div class="audiencia reveal">
+      <h3>Este webinar es para ti si...</h3>
+      <ul>
+        <li>Eres contador y llevas la contabilidad de empresas con Odoo Factura IA.</li>
+        <li>Pierdes horas cada mes digitando compras para el IVA.</li>
+        <li>Todavía armas el Anexo 3 de compras de forma manual.</li>
+        <li>Quieres reducir errores y cerrar la declaración más rápido.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CTA FINAL ====== -->
+<section class="cta-final">
+  <div class="container">
+    <h2 class="reveal">Aparta tu cupo para el 3 de agosto</h2>
+    <p class="reveal">Webinar gratuito · 60 minutos · 6:00 PM (El Salvador) · Registro abierto hasta el 2 de agosto.</p>
+    <a href="https://docs.google.com/forms/d/1f0pU_2bqHw9QIE7HnckhlJTXpG076q-tUt4gS746YVA/viewform" class="btn-cta" id="btn-registro-final" target="_blank" rel="noopener">Reservar mi cupo gratis</a>
+    <p class="micro">¿No podrás conectarte en vivo? Regístrate igual y te enviamos la grabación.</p>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer>
+  <div class="container">
+    <p>© 2026 Grupo Consiti S.A. de C.V. — Odoo Partner en El Salvador</p>
+  </div>
+</footer>
+
+<script>
+/* ====== HEADER SCROLL ====== */
+(function(){
+  const topBar = document.querySelector('.top-bar');
+  if (!topBar) return;
+  let ticking = false;
+  window.addEventListener('scroll', function(){
+    if (!ticking) {
+      window.requestAnimationFrame(function(){
+        topBar.classList.toggle('scrolled', window.scrollY > 40);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+})();
+
+/* ====== REVEAL ANIMATIONS ====== */
+(function () {
+  const elements = document.querySelectorAll('.reveal');
+  if (!elements.length) return;
+  document.documentElement.classList.add('js-anim');
+  if (!('IntersectionObserver' in window)) {
+    elements.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+  elements.forEach(el => observer.observe(el));
+})();
+
+/* ====== PARTICLES CANVAS ====== */
+(function(){
+  const canvas = document.getElementById('particles-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const hero = canvas.parentElement;
+  let particles = [], w, h, raf;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function resize(){ w = canvas.width = hero.offsetWidth; h = canvas.height = hero.offsetHeight; }
+  function init(){
+    resize();
+    const count = Math.min(60, Math.floor(w / 22));
+    particles = Array.from({length: count}, () => ({
+      x: Math.random()*w, y: Math.random()*h,
+      vx: (Math.random()-0.5)*0.3, vy: (Math.random()-0.5)*0.3,
+      r: Math.random()*1.8 + 0.6
+    }));
+  }
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    for (let i=0;i<particles.length;i++){
+      const p = particles[i];
+      p.x += p.vx; p.y += p.vy;
+      if (p.x<0||p.x>w) p.vx*=-1;
+      if (p.y<0||p.y>h) p.vy*=-1;
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle = 'rgba(167,139,250,0.5)'; ctx.fill();
+      for (let j=i+1;j<particles.length;j++){
+        const q = particles[j], dx=p.x-q.x, dy=p.y-q.y, dist=Math.sqrt(dx*dx+dy*dy);
+        if (dist<120){
+          ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y);
+          ctx.strokeStyle = 'rgba(82,22,231,'+(0.12*(1-dist/120))+')'; ctx.lineWidth=1; ctx.stroke();
+        }
+      }
+    }
+    raf = requestAnimationFrame(draw);
+  }
+  if (!reduce){ init(); draw(); window.addEventListener('resize', () => { cancelAnimationFrame(raf); init(); draw(); }); }
+})();
+</script>
+
+</body>
+</html>
