@@ -161,6 +161,19 @@
   .agenda-item.ally { border-color: rgba(255,221,0,0.35); background: rgba(255,221,0,0.05); }
   .agenda-item.ally .n { background: rgba(255,221,0,0.2); color: var(--amarillo); }
 
+  /* Pista del dueño */
+  .dueno-nota { text-align: center; max-width: 760px; margin: 26px auto 0; font-size: 15px; color: var(--lavanda); }
+  /* Agenda dos pistas */
+  .agenda2 { max-width: 900px; margin: 0 auto; display: grid; gap: 12px; }
+  .agenda2-item { display: grid; grid-template-columns: 66px 1fr 118px; gap: 16px; align-items: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(82,22,231,0.2); border-radius: 12px; padding: 15px 20px; }
+  .agenda2-item .min { font-size: 13px; font-weight: 700; color: var(--lavanda); font-variant-numeric: tabular-nums; }
+  .agenda2-item h4 { font-size: 15px; margin-bottom: 3px; color: #fff; }
+  .agenda2-item .desc2 { font-size: 13px; color: var(--gris-texto); }
+  .pista { justify-self: end; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
+  .pista.dueno { background: rgba(255,221,0,0.15); color: #ffe873; border: 1px solid rgba(255,221,0,0.4); }
+  .pista.contador { background: rgba(130,90,255,0.18); color: #c9b6ff; border: 1px solid rgba(130,90,255,0.45); }
+  .pista.ambos { background: rgba(255,255,255,0.06); color: var(--gris-texto); border: 1px solid rgba(255,255,255,0.16); }
+
   /* Beneficio 503 Local */
   .beneficio503 { max-width: 1000px; margin: 0 auto; background: linear-gradient(135deg, rgba(255,221,0,0.08), rgba(82,22,231,0.06)); border: 1px solid rgba(255,221,0,0.3); border-radius: 18px; padding: 40px; }
   .beneficio503 .badge503 { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: #000; background: var(--amarillo); border-radius: 20px; padding: 5px 14px; margin-bottom: 16px; }
@@ -244,6 +257,8 @@
     .problema-grid { grid-template-columns: 1fr; }
     .compara { grid-template-columns: 1fr; }
     .pasos { grid-template-columns: 1fr; }
+    .agenda2-item { grid-template-columns: 1fr; gap: 6px; }
+    .agenda2-item .pista { justify-self: start; }
     .beneficios-grid { grid-template-columns: 1fr; }
     .speakers-grid { grid-template-columns: 1fr; }
     .beneficio503 { padding: 26px 20px; }
@@ -291,8 +306,8 @@
       <div>
         <p class="hero-brands"><b>Grupo Consiti</b> presenta <b>Odoo Factura IA</b> · <span class="ally">en alianza estratégica con 503 Local</span></p>
         <span class="tag-webinar">IA Aplicada a Procesos Contables · Sesión 1</span>
-        <h1>Del JSON del DTE al Anexo 3, <span class="acento">en minutos, no en horas</span></h1>
-        <p class="hero-sub">Demostración en vivo: cómo cargar las compras desde el JSON del DTE, reducir la digitación manual y preparar el Anexo 3 dentro de Odoo Factura IA.</p>
+        <h1>Su plataforma ya le muestra lo que vende. <span class="acento">¿Y lo que gasta?</span></h1>
+        <p class="hero-sub">Un webinar en dos pistas: para el <strong style="color:#fff;">dueño del negocio</strong> —ver gastos, proveedores y margen real— y para su <strong style="color:#fff;">contador</strong> —del JSON del DTE al Anexo 3, con menos digitación.</p>
         <div class="pill-ia">
           <svg class="sparkle" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
@@ -319,7 +334,7 @@
           </div>
           <div>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 22h14M5 2h14M6 2v5a6 6 0 0 0 12 0V2M6 22v-5a6 6 0 0 1 12 0v5"/></svg>
-            60 minutos
+            70 minutos · 2 pistas
           </div>
         </div>
         <a href="https://docs.google.com/forms/d/1f0pU_2bqHw9QIE7HnckhlJTXpG076q-tUt4gS746YVA/viewform" class="btn-cta" id="btn-registro-hero" target="_blank" rel="noopener">Reservar mi cupo gratuito</a>
@@ -335,7 +350,7 @@
           </div>
           <div class="evento-hora">6:00 PM · hora El Salvador</div>
           <ul class="evento-lista">
-            <li>60 minutos, en vivo por Google Meet</li>
+            <li>70 minutos en dos pistas: dueño y contador</li>
             <li>Demo real: registro manual vs. carga con IA</li>
             <li>Preparación del Anexo 3 desde el sistema</li>
           </ul>
@@ -343,6 +358,37 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ====== 2b. PARA EL DUEÑO ====== -->
+<section class="seccion">
+  <div class="container">
+    <h2 class="reveal">Para el dueño: <span class="acento">la otra mitad de su negocio</span></h2>
+    <p class="lead reveal">Hoy su plataforma le muestra lo que vende. Con las compras dentro del sistema, también ve lo que gasta — y si de verdad está ganando.</p>
+    <div class="beneficios-grid">
+      <div class="beneficio reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>Cuánto gasta y en qué</h3>
+        <p>Sus egresos ordenados dentro de la plataforma, no en una hoja aparte.</p>
+      </div>
+      <div class="beneficio reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <h3>Quiénes son sus proveedores</h3>
+        <p>Con quién compra y cuánto le compra a cada uno, mes a mes.</p>
+      </div>
+      <div class="beneficio reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+        <h3>Su margen real</h3>
+        <p>Por producto o línea — el de verdad, no el estimado.</p>
+      </div>
+      <div class="beneficio reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg></div>
+        <h3>Su crédito fiscal</h3>
+        <p>Deja de vivir en un Excel ajeno que solo entiende su contador.</p>
+      </div>
+    </div>
+    <p class="dueno-nota reveal">Regístrese e invite a su contador desde el mismo formulario: <strong style="color:#fff;">usted ve el valor, él confirma la mecánica.</strong></p>
   </div>
 </section>
 
@@ -437,16 +483,15 @@
 <!-- ====== 7. AGENDA ====== -->
 <section class="seccion">
   <div class="container">
-    <h2 class="reveal">Agenda del webinar</h2>
-    <p class="lead reveal">Sesión práctica de 60 minutos con el proceso completo.</p>
-    <div class="agenda">
-      <div class="agenda-item reveal"><div class="n">1</div><span>Bienvenida y contexto</span></div>
-      <div class="agenda-item reveal"><div class="n">2</div><span>El costo real del proceso manual</span></div>
-      <div class="agenda-item reveal"><div class="n">3</div><span>Demostración manual</span></div>
-      <div class="agenda-item reveal"><div class="n">4</div><span>Demostración con IA</span></div>
-      <div class="agenda-item reveal"><div class="n">5</div><span>Preparación del Anexo 3</span></div>
-      <div class="agenda-item ally reveal"><div class="n">6</div><span>De la eficiencia al crecimiento visible <b style="color:var(--amarillo);font-weight:600;">· 503 Local</b></span></div>
-      <div class="agenda-item reveal"><div class="n">7</div><span>Preguntas y respuestas</span></div>
+    <h2 class="reveal">Agenda en dos pistas · 70 minutos</h2>
+    <p class="lead reveal">La primera mitad es para el <strong style="color:#ffe873;">dueño del negocio</strong>; la segunda es técnica, para su <strong style="color:#c9b6ff;">contador</strong>. Lo anunciamos desde el minuto uno para que cada quien sepa qué le toca.</p>
+    <div class="agenda2">
+      <div class="agenda2-item reveal"><span class="min">0–8</span><div><h4>Apertura: “su plataforma tiene la mitad de su negocio adentro”</h4><p class="desc2">Encuadre del hallazgo, agenda de dos pistas y encuesta de arranque.</p></div><span class="pista ambos">Ambos</span></div>
+      <div class="agenda2-item reveal"><span class="min">8–23</span><div><h4>Visibilidad de costos y márgenes con IA</h4><p class="desc2">De ver solo ventas a ver también gasto, proveedores, margen real y crédito fiscal.</p></div><span class="pista dueno">Dueño</span></div>
+      <div class="agenda2-item reveal"><span class="min">23–33</span><div><h4>Crecimiento y visibilidad digital · 503 Local</h4><p class="desc2">Pitch de Gabriela Samayoa y sorteo del Diagnóstico Express.</p></div><span class="pista dueno">Dueño</span></div>
+      <div class="agenda2-item reveal"><span class="min">33–53</span><div><h4>Demostración técnica: del JSON del DTE al Anexo 3</h4><p class="desc2">Carga por lote, validaciones de proveedor, excepciones y descarga del Anexo 3 en un clic.</p></div><span class="pista contador">Contador</span></div>
+      <div class="agenda2-item reveal"><span class="min">53–60</span><div><h4>Programa de contadores aliados</h4><p class="desc2">Atender más empresas con el mismo equipo: referidos y condiciones.</p></div><span class="pista contador">Contador</span></div>
+      <div class="agenda2-item reveal"><span class="min">60–70</span><div><h4>Preguntas, solicitud conjunta y cierre</h4><p class="desc2">Encuesta final de activación y enlace único de solicitud.</p></div><span class="pista ambos">Ambos</span></div>
     </div>
   </div>
 </section>
@@ -545,7 +590,7 @@
 <section class="cta-final">
   <div class="container">
     <h2 class="reveal">Devuélvele horas a tu cierre contable</h2>
-    <p class="reveal">Webinar gratuito · 60 minutos · Jueves 20 de agosto, 6:00 PM (El Salvador) · Google Meet.</p>
+    <p class="reveal">Webinar gratuito · 70 minutos en dos pistas · Jueves 20 de agosto, 6:00 PM (El Salvador) · Google Meet.</p>
     <a href="https://docs.google.com/forms/d/1f0pU_2bqHw9QIE7HnckhlJTXpG076q-tUt4gS746YVA/viewform" class="btn-cta" id="btn-registro-final" target="_blank" rel="noopener">Reservar mi cupo gratuito</a>
     <p class="micro">Registro disponible hasta el 19 de agosto · ¿No podrás conectarte en vivo? Regístrate igual y te enviamos la grabación.</p>
   </div>
