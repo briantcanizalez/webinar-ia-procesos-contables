@@ -10,8 +10,8 @@
 <meta property="og:description" content="Del JSON del DTE al registro de compras y al Anexo 3, con menos digitación manual. Jueves 20 de agosto, 6:00 PM (El Salvador)." />
 <meta property="og:type" content="website" />
 <link rel="icon" type="image/png" href="assets/isotipo.png" />
-<link rel="preload" as="image" href="assets/consiti-imagologo-blanco.png" fetchpriority="high" />
-<link rel="preload" as="image" href="assets/odoo-factura-ia-blanco.png" fetchpriority="high" />
+<link rel="preload" as="image" href="assets/consiti-logo-completo-trim.png" fetchpriority="high" />
+<link rel="preload" as="image" href="assets/odoo-factura-ia-trim.png" fetchpriority="high" />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
   :root {
@@ -52,12 +52,12 @@
   }
   .top-bar.scrolled { padding: 10px 0; background: rgba(0, 0, 0, 0.9); box-shadow: 0 6px 24px rgba(0,0,0,0.5); }
   .top-bar .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; max-width: 1400px; }
-  .logo-consiti img { height: 48px; width: auto; display: block; }
-  .top-bar.scrolled .logo-consiti img { height: 40px; }
+  .logo-consiti img { height: 58px; width: auto; display: block; }
+  .top-bar.scrolled .logo-consiti img { height: 48px; }
   .partner-mark { display: flex; align-items: center; gap: 12px; color: var(--gris-texto); font-size: 13px; }
   .partner-mark span { text-transform: uppercase; letter-spacing: 0.5px; font-size: 11px; }
-  .partner-mark img { height: 34px; width: auto; display: block; }
-  .top-bar.scrolled .partner-mark img { height: 28px; }
+  .partner-mark img { height: 46px; width: auto; display: block; }
+  .top-bar.scrolled .partner-mark img { height: 38px; }
   .ally-tag { font-size: 11px; color: var(--gris-texto); border-left: 1px solid rgba(255,255,255,0.15); padding-left: 12px; }
   .ally-tag b { color: var(--lavanda); font-weight: 600; }
 
@@ -225,6 +225,10 @@
     body { padding-top: 76px; }
     .container { padding: 0 20px; }
     .top-bar { padding: 12px 0; }
+    .logo-consiti img { height: 40px; }
+    .top-bar.scrolled .logo-consiti img { height: 34px; }
+    .partner-mark img { height: 32px; }
+    .top-bar.scrolled .partner-mark img { height: 28px; }
     .ally-tag { display: none; }
     .hero { padding: 34px 0 32px; }
     .hero-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
@@ -268,11 +272,11 @@
 <header class="top-bar">
   <div class="container">
     <div class="logo-consiti">
-      <img src="assets/consiti-imagologo-blanco.png" alt="Grupo Consiti" loading="eager" fetchpriority="high" decoding="async" />
+      <img src="assets/consiti-logo-completo-trim.png" alt="Grupo Consiti" loading="eager" fetchpriority="high" decoding="async" />
     </div>
     <div class="partner-mark">
       <span>Presenta</span>
-      <img src="assets/odoo-factura-ia-blanco.png" alt="Odoo Factura IA" loading="eager" fetchpriority="high" decoding="async" />
+      <img src="assets/odoo-factura-ia-trim.png" alt="Odoo Factura IA" loading="eager" fetchpriority="high" decoding="async" />
       <!-- TODO: reemplazar por logo de 503 Local cuando esté disponible -->
       <span class="ally-tag">En alianza con <b>503 Local</b></span>
     </div>
