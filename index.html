@@ -215,6 +215,15 @@
   .faq-item h3 { font-size: 16px; margin-bottom: 6px; color: var(--blanco); }
   .faq-item p { color: var(--gris-texto); font-size: 14px; }
 
+  /* Confianza / privacidad */
+  .confianza-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 0 auto; }
+  .confianza-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(82,22,231,0.18); border-radius: 14px; padding: 28px 24px; text-align: center; }
+  .confianza-card .ci { width: 52px; height: 52px; margin: 0 auto 14px; border-radius: 12px; background: rgba(82,22,231,0.18); display: flex; align-items: center; justify-content: center; }
+  .confianza-card .ci svg { width: 26px; height: 26px; color: var(--lavanda); }
+  .confianza-card h3 { font-size: 16px; margin-bottom: 8px; }
+  .confianza-card p { color: var(--gris-texto); font-size: 14px; line-height: 1.55; }
+  .confianza-card strong { color: #fff; }
+
   /* CTA final */
   .cta-final { padding: 70px 0; text-align: center; background: radial-gradient(ellipse at center, rgba(82, 22, 231, 0.25) 0%, transparent 70%); }
   .cta-final h2 { font-size: 34px; font-weight: 700; color: var(--blanco); margin-bottom: 16px; letter-spacing: -0.5px; }
@@ -267,6 +276,7 @@
     .speakers-grid { grid-template-columns: 1fr; }
     .beneficio503 { padding: 26px 20px; }
     .beneficio503 ul { grid-template-columns: 1fr; }
+    .confianza-grid { grid-template-columns: 1fr; }
     .audiencia { padding: 24px 20px; }
     .audiencia ul { grid-template-columns: 1fr; }
     .cta-final { padding: 44px 0; }
@@ -587,6 +597,30 @@
       <div class="faq-item reveal"><h3>¿Debo ser usuario de Odoo?</h3><p>No. La sesión está abierta a usuarios y no usuarios; la demo se realiza en Odoo Factura IA.</p></div>
       <div class="faq-item reveal"><h3>¿Reemplaza al contador?</h3><p>No. La revisión profesional sigue siendo indispensable; la herramienta reduce la digitación.</p></div>
       <div class="faq-item reveal"><h3>¿Qué pasa si no asisto en vivo?</h3><p>Regístrate igual y recibirás acceso a la grabación.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 12b. CONFIANZA / PRIVACIDAD ====== -->
+<section class="seccion">
+  <div class="container">
+    <h2 class="reveal">Su información, con respaldo</h2>
+    <div class="confianza-grid">
+      <div class="confianza-card reveal">
+        <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3>Privacidad</h3>
+        <p>Sus datos se usan solo para gestionar su registro y el seguimiento de Odoo Factura IA. No los compartimos con terceros; usted decide si quiere recibir información de 503 Local.</p>
+      </div>
+      <div class="confianza-card reveal">
+        <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.74a2 2 0 0 1 2.11-.45c.74.34 1.53.57 2.34.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <h3>Soporte real</h3>
+        <p>Soporte Odoo Factura IA:<br /><strong>+503 7474 1896</strong><br />soporte_facturacion@consiti.com</p>
+      </div>
+      <div class="confianza-card reveal">
+        <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Respaldo</h3>
+        <p>Odoo Factura IA es una solución de <strong>Grupo Consiti</strong>, Odoo Partner en El Salvador.</p>
+      </div>
     </div>
   </div>
 </section>
