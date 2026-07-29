@@ -147,6 +147,10 @@
   .paso h3 { font-size: 17px; margin-bottom: 8px; }
   .paso p { color: var(--gris-texto); font-size: 14px; }
 
+  /* Video demo */
+  .demo-video { max-width: 900px; margin: 0 auto 14px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(82,22,231,0.35); box-shadow: 0 20px 60px rgba(0,0,0,0.5); background: #000; }
+  .demo-video video { width: 100%; height: auto; display: block; }
+
   /* Beneficios */
   .beneficios-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
   .beneficio { text-align: center; padding: 28px 22px; background: rgba(255,255,255,0.02); border: 1px solid rgba(82,22,231,0.18); border-radius: 14px; }
@@ -462,6 +466,21 @@
       <div class="paso reveal"><div class="np">2</div><h3>La IA procesa la información</h3><p>Identifica proveedor, montos, impuestos y detalles de cada factura.</p></div>
       <div class="paso reveal"><div class="np">3</div><h3>Revisa y genera tu información</h3><p>Validas las compras y preparas el Anexo 3. La revisión profesional siempre queda en tus manos.</p></div>
     </div>
+  </div>
+</section>
+
+<!-- ====== 5b. VÉALO EN ACCIÓN ====== -->
+<section class="seccion">
+  <div class="container">
+    <h2 class="reveal">Véalo en acción</h2>
+    <p class="lead reveal">El flujo real dentro de Odoo Factura IA: de la carga de compras a la generación del Anexo 3.</p>
+    <div class="demo-video reveal">
+      <video controls muted playsinline preload="none" poster="assets/demo-poster.jpg">
+        <source src="assets/demo-carga-compras.mp4" type="video/mp4" />
+        Tu navegador no soporta la reproducción de video.
+      </video>
+    </div>
+    <p class="impacto-nota reveal">Demostración referencial en ambiente demo; los resultados varían según el volumen y la calidad de los documentos.</p>
   </div>
 </section>
 
