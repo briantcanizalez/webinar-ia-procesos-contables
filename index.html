@@ -204,8 +204,10 @@
   .audiencia li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--morado); font-weight: 700; }
 
   /* Prueba social */
-  .prueba-social { max-width: 820px; margin: 0 auto; text-align: center; background: rgba(255,255,255,0.03); border: 1px dashed rgba(82,22,231,0.4); border-radius: 16px; padding: 34px; }
-  .prueba-social p { color: var(--gris-texto); font-size: 15px; font-style: italic; }
+  .prueba-social { max-width: 820px; margin: 0 auto; text-align: center; background: linear-gradient(135deg, rgba(82,22,231,0.10), rgba(82,22,231,0.03)); border: 1px solid rgba(82,22,231,0.35); border-radius: 16px; padding: 40px 36px; }
+  .prueba-social .quote-mark { font-size: 54px; line-height: 0.6; color: var(--morado); font-family: Georgia, serif; display: block; margin-bottom: 6px; }
+  .prueba-social .quote { color: var(--blanco); font-size: 19px; line-height: 1.6; font-style: italic; max-width: 700px; margin: 0 auto; }
+  .prueba-social .quote-author { color: var(--lavanda); font-size: 14px; font-weight: 600; margin-top: 20px; }
 
   /* FAQ */
   .faq { max-width: 820px; margin: 0 auto; display: grid; gap: 12px; }
@@ -567,9 +569,11 @@
 <!-- ====== 11. PRUEBA SOCIAL ====== -->
 <section class="seccion">
   <div class="container">
+    <h2 class="reveal">Lo que dicen quienes ya lo usan</h2>
     <div class="prueba-social reveal">
-      <!-- TODO: reemplazar por un testimonio verificado de un cliente. Solo estadísticas y resultados verificables. -->
-      <p>“Espacio reservado para un testimonio verificado de un cliente que haya usado la carga de compras con IA.”</p>
+      <span class="quote-mark">“</span>
+      <p class="quote">Gracias a la generación de los anexos, ahora cierro el IVA mucho más rápido y sin los errores que antes tenía que validar a mano, revisando Excel por Excel. Ahora el sistema me dice dónde hay inconsistencias y las corrige.</p>
+      <p class="quote-author">— Lic. Mara Alicia · Contadora, cliente de Odoo Factura IA</p>
     </div>
   </div>
 </section>
