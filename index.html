@@ -60,6 +60,8 @@
   .top-bar.scrolled .partner-mark img { height: 38px; }
   .ally-tag { font-size: 11px; color: var(--gris-texto); border-left: 1px solid rgba(255,255,255,0.15); padding-left: 12px; }
   .ally-tag b { color: var(--lavanda); font-weight: 600; }
+  .ally-logo { height: 24px; width: auto; display: block; }
+  .top-bar.scrolled .ally-logo { height: 21px; }
 
   /* ====== HERO ====== */
   .hero {
@@ -242,7 +244,7 @@
     .top-bar.scrolled .logo-consiti img { height: 22px; }
     .partner-mark img { height: 32px; }
     .top-bar.scrolled .partner-mark img { height: 28px; }
-    .ally-tag { display: none; }
+    .ally-tag, .ally-logo { display: none; }
     .hero { padding: 34px 0 32px; }
     .hero-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
     .hero h1 { font-size: 28px; letter-spacing: -0.4px; margin-bottom: 16px; line-height: 1.2; }
@@ -292,8 +294,8 @@
     <div class="partner-mark">
       <span>Presenta</span>
       <img src="assets/odoo-factura-ia-trim.png" alt="Odoo Factura IA" loading="eager" fetchpriority="high" decoding="async" />
-      <!-- TODO: reemplazar por logo de 503 Local cuando esté disponible -->
-      <span class="ally-tag">En alianza con <b>503 Local</b></span>
+      <span class="ally-tag">En alianza con</span>
+      <img src="assets/503local-blanco.png" class="ally-logo" alt="503 Local by mmusa" loading="eager" decoding="async" />
     </div>
   </div>
 </header>
@@ -531,8 +533,7 @@
         </div>
       </div>
       <div class="speaker reveal">
-        <!-- TODO: reemplazar el avatar por la foto de Gabriela cuando esté disponible -->
-        <div class="foto"><span class="ini">GS</span></div>
+        <div class="foto"><img src="assets/gabriela-samayoa.jpg" alt="Gabriela Samayoa" loading="lazy" decoding="async" /></div>
         <div>
           <div class="rol">503 Local</div>
           <h3>Gabriela Samayoa</h3>
@@ -601,7 +602,8 @@
   <div class="container">
     <p class="firma">Odoo Factura IA, una solución de Grupo Consiti.</p>
     <p>© 2026 Grupo Consiti S.A. de C.V. — Odoo Partner en El Salvador.</p>
-    <p>Con 503 Local como Partner Estratégico de Crecimiento y Visibilidad Digital.</p>
+    <p style="margin-top:14px;"><img src="assets/503local-blanco.png" alt="503 Local by mmusa" style="height:30px;width:auto;opacity:0.85;display:inline-block;" /></p>
+    <p>503 Local, Partner Estratégico de Crecimiento y Visibilidad Digital.</p>
   </div>
 </footer>
 
