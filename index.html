@@ -237,8 +237,10 @@
   .faq-item p { color: var(--gris-texto); font-size: 14px; }
 
   /* Confianza / privacidad */
-  .confianza-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 0 auto; }
-  .confianza-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(82,22,231,0.18); border-radius: 14px; padding: 28px 24px; text-align: center; }
+  .confianza-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+  .confianza-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(82,22,231,0.18); border-radius: 14px; padding: 28px 24px; text-align: center; min-width: 0; }
+  /* el correo de soporte es una cadena sin espacios: sin esto estira la grilla */
+  .confianza-card p { overflow-wrap: anywhere; }
   .confianza-card .ci { width: 52px; height: 52px; margin: 0 auto 14px; border-radius: 12px; background: rgba(82,22,231,0.18); display: flex; align-items: center; justify-content: center; }
   .confianza-card .ci svg { width: 26px; height: 26px; color: var(--lavanda); }
   .confianza-card h3 { font-size: 16px; margin-bottom: 8px; }
@@ -269,25 +271,33 @@
     .beneficios-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 900px) {
-    body { padding-top: 62px; line-height: 1.55; }
+    body { padding-top: 56px; line-height: 1.55; }
     .container { padding: 0 20px; }
-    .top-bar { padding: 12px 0; }
-    .logo-consiti img { height: 24px; }
+    .top-bar { padding: 11px 0; }
+    .top-bar .container { gap: 10px; }
+    .logo-consiti img { height: 22px; }
     .top-bar.scrolled .logo-consiti img { height: 22px; }
-    .partner-mark img { height: 32px; }
+    .partner-mark { gap: 8px; }
+    .partner-mark img { height: 28px; }
     .top-bar.scrolled .partner-mark img { height: 28px; }
-    .ally-tag, .ally-logo { display: none; }
+    /* .partner-mark img también declara display:block y le gana en especificidad
+       a .ally-logo, así que hay que ocultarlo con un selector igual de fuerte */
+    .ally-tag, .partner-mark .ally-logo { display: none; }
 
-    /* ---- Hero: la tarjeta de evento ya trae fecha, hora, Meet y duración,
-       así que la lista de metadatos se oculta para no repetir el mismo dato ---- */
-    .hero { padding: 30px 0 30px; }
-    .hero-grid { grid-template-columns: 1fr; gap: 26px; text-align: center; }
+    /* ---- Hero: la barra superior ya muestra Consiti + Odoo Factura IA, así que
+       de la línea de marcas solo queda la alianza. La lista de metadatos se
+       oculta porque la tarjeta 20 AGO ya trae fecha, hora, Meet y duración ---- */
+    .hero { padding: 26px 0 30px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 24px; text-align: center; }
     .hero-brands { font-size: 12px; margin-bottom: 12px; }
+    .hero-brands .brands-largo { display: none; }
     .hero h1 { font-size: 28px; letter-spacing: -0.4px; margin-bottom: 14px; line-height: 1.2; }
     .hero-sub { font-size: 15px; margin: 0 auto 20px; }
     .hero-meta { display: none; }
-    .pill-ia { margin-bottom: 18px; font-size: 13px; padding: 7px 14px; }
-    .tag-webinar { font-size: 11px; padding: 4px 10px; margin-bottom: 14px; }
+    .pill-ia { margin-bottom: 20px; font-size: 13px; padding: 7px 14px; }
+    /* La insignia de arriba repite el título de la página y se apila con .pill-ia;
+       en móvil sobra una de las dos */
+    .tag-webinar { display: none; }
     .evento-card { margin: 0 auto; max-width: 100%; padding: 26px 20px; }
     .evento-fecha .dia { font-size: 58px; }
     .evento-fecha .mes { font-size: 24px; }
@@ -325,7 +335,7 @@
     .beneficio h3 { grid-column: 2; grid-row: 1; font-size: 15px; margin-bottom: 4px; }
     .beneficio p { grid-column: 2; grid-row: 2; font-size: 13px; }
 
-    .confianza-grid { grid-template-columns: 1fr; gap: 12px; }
+    .confianza-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
     .confianza-card { display: grid; grid-template-columns: 40px 1fr; column-gap: 14px; align-items: start; text-align: left; padding: 18px 16px; }
     .confianza-card .ci { grid-column: 1; grid-row: 1 / span 2; width: 40px; height: 40px; margin: 0; border-radius: 10px; }
     .confianza-card .ci svg { width: 20px; height: 20px; }
@@ -379,6 +389,9 @@
   @media (max-width: 640px) {
     .hero h1 { font-size: 24px; }
     .btn-cta { width: 100%; padding: 14px 20px; font-size: 15px; }
+    /* Sin la palabra "Presenta" la barra entra en una sola fila incluso en
+       pantallas de 320px; los dos logos juntos ya se leen como co-marca */
+    .partner-mark span:not(.ally-tag) { display: none; }
   }
   @media (max-width: 400px) {
     .container { padding: 0 14px; }
@@ -411,10 +424,10 @@
   <div class="container" style="position: relative; z-index: 2;">
     <div class="hero-grid">
       <div>
-        <p class="hero-brands"><b>Grupo Consiti</b> presenta <b>Odoo Factura IA</b> · <span class="ally">en alianza estratégica con 503 Local</span></p>
+        <p class="hero-brands"><span class="brands-largo"><b>Grupo Consiti</b> presenta <b>Odoo Factura IA</b> · </span><span class="ally">En alianza estratégica con 503 Local</span></p>
         <span class="tag-webinar">IA Aplicada a Procesos Contables</span>
         <h1>Su plataforma ya le muestra lo que vende. <span class="acento">¿Y lo que gasta?</span></h1>
-        <p class="hero-sub">Un webinar en dos pistas: para el <strong style="color:#fff;">dueño del negocio</strong>, que verá sus gastos, proveedores y margen real; y para su <strong style="color:#fff;">contador</strong>, que irá del JSON del DTE al Anexo 3 con menos digitación.</p>
+        <p class="hero-sub">Dos pistas: para el <strong style="color:#fff;">dueño</strong>, que verá gastos, proveedores y margen real; y para su <strong style="color:#fff;">contador</strong>, que irá del JSON del DTE al Anexo 3.</p>
         <div class="pill-ia">
           <svg class="sparkle" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
