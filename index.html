@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Webinar: IA Aplicada a Procesos Contables — Grupo Consiti</title>
+<title>Webinar: IA Aplicada a Procesos Contables | Grupo Consiti</title>
 <meta name="description" content="Webinar gratuito en dos pistas: para el dueño del negocio (gastos, proveedores y margen real) y su contador (del JSON del DTE al Anexo 3). Jueves 20 de agosto, 6:00 PM (El Salvador)." />
 <meta name="keywords" content="Grupo Consiti, Odoo Factura IA, Anexo 3, IVA, contadores, dueños de negocio, costos, margen, proveedores, El Salvador, factura electrónica, 503 Local" />
 <meta property="og:type" content="website" />
@@ -154,7 +154,7 @@
   .paso h3 { font-size: 17px; margin-bottom: 8px; }
   .paso p { color: var(--gris-texto); font-size: 14px; }
 
-  /* Video demo — marco tipo ventana de producto */
+  /* Video demo: marco tipo ventana de producto */
   .demo-frame { max-width: 940px; margin: 0 auto 16px; position: relative; }
   .demo-frame::before { content: ""; position: absolute; left: 6%; right: 6%; top: 8%; bottom: -8%; background: radial-gradient(60% 70% at 50% 30%, rgba(82,22,231,0.55), rgba(255,221,0,0.10) 55%, transparent 75%); filter: blur(48px); opacity: 0.75; z-index: 0; pointer-events: none; }
   .demo-window { position: relative; z-index: 1; border-radius: 16px; overflow: hidden; border: 1px solid rgba(130,90,255,0.45); background: #0d0722; box-shadow: 0 30px 80px rgba(0,0,0,0.6); }
@@ -188,7 +188,7 @@
   .dueno-nota { text-align: center; max-width: 760px; margin: 26px auto 0; font-size: 15px; color: var(--lavanda); }
   /* Agenda dos pistas */
   .agenda2 { max-width: 900px; margin: 0 auto; display: grid; gap: 12px; }
-  .agenda2-item { display: grid; grid-template-columns: 66px 1fr 118px; gap: 16px; align-items: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(82,22,231,0.2); border-radius: 12px; padding: 15px 20px; }
+  .agenda2-item { display: grid; grid-template-columns: 76px 1fr 118px; gap: 16px; align-items: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(82,22,231,0.2); border-radius: 12px; padding: 15px 20px; }
   .agenda2-item .min { font-size: 13px; font-weight: 700; color: var(--lavanda); font-variant-numeric: tabular-nums; }
   .agenda2-item h4 { font-size: 15px; margin-bottom: 3px; color: #fff; }
   .agenda2-item .desc2 { font-size: 13px; color: var(--gris-texto); }
@@ -269,7 +269,7 @@
     .beneficios-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 900px) {
-    body { padding-top: 62px; }
+    body { padding-top: 62px; line-height: 1.55; }
     .container { padding: 0 20px; }
     .top-bar { padding: 12px 0; }
     .logo-consiti img { height: 24px; }
@@ -277,44 +277,114 @@
     .partner-mark img { height: 32px; }
     .top-bar.scrolled .partner-mark img { height: 28px; }
     .ally-tag, .ally-logo { display: none; }
-    .hero { padding: 34px 0 32px; }
-    .hero-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
-    .hero h1 { font-size: 28px; letter-spacing: -0.4px; margin-bottom: 16px; line-height: 1.2; }
-    .hero-sub { margin: 0 auto 22px; }
-    .hero-meta { justify-content: center; gap: 14px; }
+
+    /* ---- Hero: la tarjeta de evento ya trae fecha, hora, Meet y duración,
+       así que la lista de metadatos se oculta para no repetir el mismo dato ---- */
+    .hero { padding: 30px 0 30px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 26px; text-align: center; }
+    .hero-brands { font-size: 12px; margin-bottom: 12px; }
+    .hero h1 { font-size: 28px; letter-spacing: -0.4px; margin-bottom: 14px; line-height: 1.2; }
+    .hero-sub { font-size: 15px; margin: 0 auto 20px; }
+    .hero-meta { display: none; }
     .pill-ia { margin-bottom: 18px; font-size: 13px; padding: 7px 14px; }
     .tag-webinar { font-size: 11px; padding: 4px 10px; margin-bottom: 14px; }
-    .evento-card { margin: 0 auto; max-width: 100%; }
-    .seccion { padding: 42px 0; }
+    .evento-card { margin: 0 auto; max-width: 100%; padding: 26px 20px; }
+    .evento-fecha .dia { font-size: 58px; }
+    .evento-fecha .mes { font-size: 24px; }
+    .evento-badge { margin-bottom: 16px; }
+    .evento-hora { font-size: 14px; margin-bottom: 18px; }
+    .evento-lista { gap: 10px; }
+    .evento-lista li { font-size: 13px; }
+
+    .seccion { padding: 40px 0; }
     .seccion h2 { font-size: 24px; }
-    .seccion .lead { font-size: 14px; margin-bottom: 26px; }
-    .problema-grid { grid-template-columns: 1fr; }
-    .compara { grid-template-columns: 1fr; }
-    .pasos { grid-template-columns: 1fr; }
-    .agenda2-item { grid-template-columns: 1fr; gap: 6px; }
-    .agenda2-item .pista { justify-self: start; }
-    .beneficios-grid { grid-template-columns: 1fr; }
-    .speakers-grid { grid-template-columns: 1fr; }
-    .beneficio503 { padding: 26px 20px; }
-    .beneficio503 ul { grid-template-columns: 1fr; }
-    .confianza-grid { grid-template-columns: 1fr; }
+    .seccion .lead { font-size: 14px; margin-bottom: 24px; }
+
+    .problema-grid { grid-template-columns: 1fr; gap: 12px; }
+    .problema-card { padding: 18px 16px; }
+    .problema-card .n { margin-bottom: 6px; }
+    .problema-card p { font-size: 14px; }
+
+    .compara { grid-template-columns: 1fr; gap: 14px; }
+    .compara .col { padding: 22px 18px; }
+    .compara .big { font-size: 34px; }
+    .compara li { font-size: 13px; }
+
+    /* ---- Tarjetas horizontales (icono a la izquierda) en lugar de verticales
+       centradas: cada bloque pasa de ~3 líneas de alto a ~2 ---- */
+    .pasos { grid-template-columns: 1fr; gap: 12px; }
+    .paso { display: grid; grid-template-columns: 38px 1fr; column-gap: 14px; align-items: start; text-align: left; padding: 18px 16px; }
+    .paso .np { grid-column: 1; grid-row: 1 / span 2; width: 38px; height: 38px; margin: 0; font-size: 16px; border-radius: 10px; }
+    .paso h3 { grid-column: 2; grid-row: 1; font-size: 15px; }
+    .paso p { grid-column: 2; grid-row: 2; font-size: 13px; }
+
+    .beneficios-grid { grid-template-columns: 1fr; gap: 12px; }
+    .beneficio { display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; align-items: start; text-align: left; padding: 18px 16px; }
+    .beneficio .icon-wrap { grid-column: 1; grid-row: 1 / span 2; width: 44px; height: 44px; margin: 0; border-radius: 11px; }
+    .beneficio svg { width: 22px; height: 22px; }
+    .beneficio h3 { grid-column: 2; grid-row: 1; font-size: 15px; margin-bottom: 4px; }
+    .beneficio p { grid-column: 2; grid-row: 2; font-size: 13px; }
+
+    .confianza-grid { grid-template-columns: 1fr; gap: 12px; }
+    .confianza-card { display: grid; grid-template-columns: 40px 1fr; column-gap: 14px; align-items: start; text-align: left; padding: 18px 16px; }
+    .confianza-card .ci { grid-column: 1; grid-row: 1 / span 2; width: 40px; height: 40px; margin: 0; border-radius: 10px; }
+    .confianza-card .ci svg { width: 20px; height: 20px; }
+    .confianza-card h3 { grid-column: 2; grid-row: 1; font-size: 15px; margin-bottom: 4px; }
+    .confianza-card p { grid-column: 2; grid-row: 2; font-size: 13px; }
+
+    /* ---- Agenda: minuto y pista comparten fila, el texto va debajo ---- */
+    .agenda2 { gap: 10px; }
+    .agenda2-item { grid-template-columns: 1fr auto; column-gap: 10px; row-gap: 5px; padding: 13px 16px; }
+    .agenda2-item .min { grid-column: 1; grid-row: 1; }
+    .agenda2-item .pista { grid-column: 2; grid-row: 1; justify-self: end; }
+    .agenda2-item > div { grid-column: 1 / -1; grid-row: 2; }
+    .agenda2-item h4 { font-size: 14.5px; }
+    .agenda2-item .desc2 { font-size: 12.5px; }
+
+    .dueno-nota { font-size: 14px; margin-top: 18px; }
+
+    .beneficio503 { padding: 24px 18px; }
+    .beneficio503 h3 { font-size: 18px; }
+    .beneficio503 .desc { font-size: 14px; margin-bottom: 16px; }
+    .beneficio503 ul { grid-template-columns: 1fr; gap: 10px; }
+    .beneficio503 li { font-size: 13px; }
+
     .demo-chip { display: none; }
     .demo-title { font-size: 11px; }
-    .audiencia { padding: 24px 20px; }
-    .audiencia ul { grid-template-columns: 1fr; }
+
+    .speakers-grid { grid-template-columns: 1fr; gap: 14px; }
+    .speaker { padding: 22px 18px; gap: 16px; }
+    .speaker .foto { width: 68px; height: 68px; flex: 0 0 68px; }
+    .speaker h3 { font-size: 18px; }
+    .speaker p { font-size: 13px; }
+
+    .audiencia { padding: 22px 18px; }
+    .audiencia ul { grid-template-columns: 1fr; gap: 12px; }
+    .audiencia li { font-size: 14px; }
+
+    .prueba-social { padding: 26px 20px; }
+    .prueba-social .quote-mark { font-size: 42px; }
+    .prueba-social .quote { font-size: 16px; }
+    .prueba-social .quote-author { font-size: 13px; margin-top: 16px; }
+
+    .faq { gap: 10px; }
+    .faq-item { padding: 16px 18px; }
+    .faq-item h3 { font-size: 15px; }
+    .faq-item p { font-size: 13px; }
+
     .cta-final { padding: 44px 0; }
     .cta-final h2 { font-size: 24px; }
+    .cta-final p { font-size: 14px; margin-bottom: 26px; }
   }
   @media (max-width: 640px) {
     .hero h1 { font-size: 24px; }
     .btn-cta { width: 100%; padding: 14px 20px; font-size: 15px; }
-    .hero-meta { flex-direction: column; gap: 8px; align-items: center; }
-    .speaker { flex-direction: column; align-items: center; text-align: center; }
   }
   @media (max-width: 400px) {
     .container { padding: 0 14px; }
     .hero h1 { font-size: 21px; }
-    .evento-card { padding: 24px 18px; }
+    .evento-card { padding: 22px 16px; }
+    .evento-fecha .dia { font-size: 50px; }
   }
 </style>
 </head>
@@ -344,7 +414,7 @@
         <p class="hero-brands"><b>Grupo Consiti</b> presenta <b>Odoo Factura IA</b> · <span class="ally">en alianza estratégica con 503 Local</span></p>
         <span class="tag-webinar">IA Aplicada a Procesos Contables</span>
         <h1>Su plataforma ya le muestra lo que vende. <span class="acento">¿Y lo que gasta?</span></h1>
-        <p class="hero-sub">Un webinar en dos pistas: para el <strong style="color:#fff;">dueño del negocio</strong> —ver gastos, proveedores y margen real— y para su <strong style="color:#fff;">contador</strong> —del JSON del DTE al Anexo 3, con menos digitación.</p>
+        <p class="hero-sub">Un webinar en dos pistas: para el <strong style="color:#fff;">dueño del negocio</strong>, que verá sus gastos, proveedores y margen real; y para su <strong style="color:#fff;">contador</strong>, que irá del JSON del DTE al Anexo 3 con menos digitación.</p>
         <div class="pill-ia">
           <svg class="sparkle" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
@@ -375,23 +445,23 @@
           </div>
         </div>
         <a href="https://forms.gle/E3eLmRykVmDQrvNb9" class="btn-cta" id="btn-registro-hero" target="_blank" rel="noopener">Reservar mi cupo gratuito</a>
-        <p class="hero-microcopy">No necesitas instalar ningún programa. ¿No puedes conectarte en vivo? Regístrate y recibe la grabación.</p>
+        <p class="hero-microcopy">No necesita instalar ningún programa.</p>
       </div>
 
       <div class="hero-visual">
         <div class="evento-card">
-          <span class="evento-badge">Webinar en vivo · Gratis</span>
+          <span class="evento-badge">Webinar gratuito</span>
           <div class="evento-fecha">
             <span class="dia">20</span>
             <span class="mes">AGO</span>
           </div>
-          <div class="evento-hora">6:00 PM · hora El Salvador</div>
+          <div class="evento-hora">Jueves · 6:00 PM hora El Salvador</div>
           <ul class="evento-lista">
-            <li>70 minutos en dos pistas: dueño y contador</li>
+            <li>70 minutos en vivo por Google Meet</li>
             <li>Demo real: registro manual vs. carga con IA</li>
             <li>Preparación del Anexo 3 desde el sistema</li>
           </ul>
-          <p class="evento-nota">Registro abierto hasta el 19 de agosto.</p>
+          <p class="evento-nota">Registro abierto hasta el 19 de agosto de 2026.</p>
         </div>
       </div>
     </div>
@@ -402,7 +472,7 @@
 <section class="seccion">
   <div class="container">
     <h2 class="reveal">Para el dueño: <span class="acento">la otra mitad de su negocio</span></h2>
-    <p class="lead reveal">Hoy su plataforma le muestra lo que vende. Con las compras dentro del sistema, también ve lo que gasta — y si de verdad está ganando.</p>
+    <p class="lead reveal">Hoy su plataforma le muestra lo que vende. Con las compras dentro del sistema, también ve lo que gasta y si de verdad está ganando.</p>
     <div class="beneficios-grid">
       <div class="beneficio reveal">
         <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
@@ -417,7 +487,7 @@
       <div class="beneficio reveal">
         <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
         <h3>Su margen real</h3>
-        <p>Por producto o línea — el de verdad, no el estimado.</p>
+        <p>Por producto o línea: el de verdad, no el estimado.</p>
       </div>
       <div class="beneficio reveal">
         <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg></div>
@@ -432,8 +502,8 @@
 <!-- ====== 3. EL PROBLEMA ====== -->
 <section class="seccion">
   <div class="container">
-    <h2 class="reveal">Tu cierre de IVA no debería depender de <span class="acento">horas de digitación</span></h2>
-    <p class="lead reveal">Registrar compras a mano y preparar el Anexo 3 consume una parte importante del cierre mensual. El JSON del DTE ya trae la información — el reto es aprovecharla.</p>
+    <h2 class="reveal">Su cierre de IVA no debería depender de <span class="acento">horas de digitación</span></h2>
+    <p class="lead reveal">Cada factura de compra ya le llega en formato electrónico. Aun así, el cierre mensual se sigue armando a mano.</p>
     <div class="problema-grid">
       <div class="problema-card reveal"><div class="n">01</div><p>Registrar cada compra manualmente consume una parte importante de la jornada.</p></div>
       <div class="problema-card reveal"><div class="n">02</div><p>Cada dato digitado a mano aumenta el riesgo de inconsistencias y duplicaciones.</p></div>
@@ -481,9 +551,9 @@
     <h2 class="reveal">Cómo funciona</h2>
     <p class="lead reveal">De un archivo JSON a las compras registradas, en tres pasos.</p>
     <div class="pasos">
-      <div class="paso reveal"><div class="np">1</div><h3>Carga tus archivos</h3><p>Selecciona y carga los JSON de las compras a procesar.</p></div>
+      <div class="paso reveal"><div class="np">1</div><h3>Cargue sus archivos</h3><p>Seleccione y cargue los JSON de las compras a procesar.</p></div>
       <div class="paso reveal"><div class="np">2</div><h3>La IA procesa la información</h3><p>Identifica proveedor, montos, impuestos y detalles de cada factura.</p></div>
-      <div class="paso reveal"><div class="np">3</div><h3>Revisa y genera tu información</h3><p>Validas las compras y preparas el Anexo 3. La revisión profesional siempre queda en tus manos.</p></div>
+      <div class="paso reveal"><div class="np">3</div><h3>Revise y genere su información</h3><p>Valida las compras y prepara el Anexo 3. La revisión profesional siempre queda en sus manos.</p></div>
     </div>
   </div>
 </section>
@@ -519,23 +589,23 @@
     <div class="beneficios-grid">
       <div class="beneficio reveal">
         <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-        <h3>Cierra el IVA más rápido</h3>
+        <h3>Cierre el IVA más rápido</h3>
         <p>Menos tiempo registrando compras una por una en plena temporada de declaración.</p>
       </div>
       <div class="beneficio reveal">
         <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-        <h3>Disminuye errores de digitación</h3>
-        <p>Aprovecha el documento electrónico y reduce la reescritura manual de datos.</p>
+        <h3>Disminuya errores de digitación</h3>
+        <p>Aproveche el documento electrónico y reduzca la reescritura manual de datos.</p>
       </div>
       <div class="beneficio reveal">
         <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
-        <h3>Simplifica el Anexo 3</h3>
+        <h3>Simplifique el Anexo 3</h3>
         <p>Compras organizadas, listas para revisión y generación del anexo.</p>
       </div>
       <div class="beneficio reveal">
         <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-        <h3>Recupera tiempo de alto valor</h3>
-        <p>Más horas para análisis, planificación y atención a tus clientes.</p>
+        <h3>Recupere tiempo de alto valor</h3>
+        <p>Más horas para análisis, planificación y atención a sus clientes.</p>
       </div>
     </div>
   </div>
@@ -547,12 +617,12 @@
     <h2 class="reveal">Agenda en dos pistas · 70 minutos</h2>
     <p class="lead reveal">La primera mitad es para el <strong style="color:#ffe873;">dueño del negocio</strong>; la segunda es técnica, para su <strong style="color:#c9b6ff;">contador</strong>. Lo anunciamos desde el minuto uno para que cada quien sepa qué le toca.</p>
     <div class="agenda2">
-      <div class="agenda2-item reveal"><span class="min">0–8</span><div><h4>Apertura: “su plataforma tiene la mitad de su negocio adentro”</h4><p class="desc2">Encuadre del hallazgo, agenda de dos pistas y encuesta de arranque.</p></div><span class="pista ambos">Ambos</span></div>
-      <div class="agenda2-item reveal"><span class="min">8–23</span><div><h4>Visibilidad de costos y márgenes con IA</h4><p class="desc2">De ver solo ventas a ver también gasto, proveedores, margen real y crédito fiscal.</p></div><span class="pista dueno">Dueño</span></div>
-      <div class="agenda2-item reveal"><span class="min">23–33</span><div><h4>Crecimiento y visibilidad digital · 503 Local</h4><p class="desc2">Pitch de Gabriela Samayoa y sorteo del Diagnóstico Express.</p></div><span class="pista dueno">Dueño</span></div>
-      <div class="agenda2-item reveal"><span class="min">33–53</span><div><h4>Demostración técnica: del JSON del DTE al Anexo 3</h4><p class="desc2">Carga por lote, validaciones de proveedor, excepciones y descarga del Anexo 3 en un clic.</p></div><span class="pista contador">Contador</span></div>
-      <div class="agenda2-item reveal"><span class="min">53–60</span><div><h4>Programa de contadores aliados</h4><p class="desc2">Atender más empresas con el mismo equipo: referidos y condiciones.</p></div><span class="pista contador">Contador</span></div>
-      <div class="agenda2-item reveal"><span class="min">60–70</span><div><h4>Preguntas, solicitud conjunta y cierre</h4><p class="desc2">Encuesta final de activación y enlace único de solicitud.</p></div><span class="pista ambos">Ambos</span></div>
+      <div class="agenda2-item reveal"><span class="min">0 a 8</span><div><h4>Apertura: “su plataforma tiene la mitad de su negocio adentro”</h4><p class="desc2">Encuadre del hallazgo, agenda de dos pistas y encuesta de arranque.</p></div><span class="pista ambos">Ambos</span></div>
+      <div class="agenda2-item reveal"><span class="min">8 a 23</span><div><h4>Visibilidad de costos y márgenes con IA</h4><p class="desc2">De ver solo ventas a ver también gasto, proveedores, margen real y crédito fiscal.</p></div><span class="pista dueno">Dueño</span></div>
+      <div class="agenda2-item reveal"><span class="min">23 a 33</span><div><h4>Crecimiento y visibilidad digital · 503 Local</h4><p class="desc2">Pitch de Gabriela Samayoa y sorteo del Diagnóstico Express.</p></div><span class="pista dueno">Dueño</span></div>
+      <div class="agenda2-item reveal"><span class="min">33 a 53</span><div><h4>Demostración técnica: del JSON del DTE al Anexo 3</h4><p class="desc2">Carga por lote, validaciones de proveedor, excepciones y descarga del Anexo 3 en un clic.</p></div><span class="pista contador">Contador</span></div>
+      <div class="agenda2-item reveal"><span class="min">53 a 60</span><div><h4>Programa de contadores aliados</h4><p class="desc2">Atender más empresas con el mismo equipo: referidos y condiciones.</p></div><span class="pista contador">Contador</span></div>
+      <div class="agenda2-item reveal"><span class="min">60 a 70</span><div><h4>Preguntas, solicitud conjunta y cierre</h4><p class="desc2">Encuesta final de activación y enlace único de solicitud.</p></div><span class="pista ambos">Ambos</span></div>
     </div>
   </div>
 </section>
@@ -562,10 +632,10 @@
   <div class="container">
     <div class="beneficio503 reveal">
       <span class="badge503">Beneficio exclusivo · 503 Local</span>
-      <h3>Automatiza tu operación. Después, haz visible tu crecimiento.</h3>
+      <h3>Automatice su operación. Después, haga visible su crecimiento.</h3>
       <p class="desc"><strong style="color:#fff;">Diagnóstico Express de Visibilidad y Confianza Digital</strong></p>
       <ul>
-        <li>Revisión inicial de tu propuesta de valor</li>
+        <li>Revisión inicial de su propuesta de valor</li>
         <li>Evaluación de claridad y confianza digital</li>
         <li>Observación de presencia en buscadores</li>
         <li>Visibilidad en plataformas de inteligencia artificial</li>
@@ -607,17 +677,13 @@
 <!-- ====== 10. AUDIENCIA ====== -->
 <section class="seccion">
   <div class="container">
-    <h2 class="reveal">Este webinar es para ti si...</h2>
+    <h2 class="reveal">Este webinar es para usted si...</h2>
     <div class="audiencia reveal">
       <ul>
-        <li>Eres contador independiente.</li>
-        <li>Trabajas en una firma o despacho contable.</li>
-        <li>Formas parte del equipo administrativo o financiero.</li>
-        <li>Pierdes horas registrando compras manualmente.</li>
-        <li>Preparas el Anexo 3 con procesos repetitivos.</li>
-        <li>Usas Odoo Factura IA y quieres aprovecharlo mejor.</li>
-        <li>Evalúas automatizar procesos contables.</li>
-        <li>Quieres reducir errores y acelerar el cierre mensual.</li>
+        <li>Es dueño o gerente de un negocio que ya factura electrónicamente.</li>
+        <li>Es contador independiente o trabaja en una firma o despacho contable.</li>
+        <li>Forma parte del equipo administrativo o financiero de una empresa.</li>
+        <li>Usa Odoo Factura IA y quiere aprovecharlo mejor.</li>
       </ul>
     </div>
   </div>
@@ -630,7 +696,7 @@
     <div class="prueba-social reveal">
       <span class="quote-mark">“</span>
       <p class="quote">Gracias a la generación de los anexos, ahora cierro el IVA mucho más rápido y sin los errores que antes tenía que validar a mano, revisando Excel por Excel. Ahora el sistema me dice dónde hay inconsistencias y las corrige.</p>
-      <p class="quote-author">— Lic. Mara Alicia · Contadora, cliente de Odoo Factura IA</p>
+      <p class="quote-author">Lic. Mara Alicia · Contadora, cliente de Odoo Factura IA</p>
     </div>
   </div>
 </section>
@@ -643,7 +709,7 @@
       <div class="faq-item reveal"><h3>¿Tiene costo?</h3><p>No. El registro y la participación son gratuitos.</p></div>
       <div class="faq-item reveal"><h3>¿Debo ser usuario de Odoo?</h3><p>No. La sesión está abierta a usuarios y no usuarios; la demo se realiza en Odoo Factura IA.</p></div>
       <div class="faq-item reveal"><h3>¿Reemplaza al contador?</h3><p>No. La revisión profesional sigue siendo indispensable; la herramienta reduce la digitación.</p></div>
-      <div class="faq-item reveal"><h3>¿Qué pasa si no asisto en vivo?</h3><p>Regístrate igual y recibirás acceso a la grabación.</p></div>
+      <div class="faq-item reveal"><h3>¿Qué pasa si no asisto en vivo?</h3><p>Regístrese igual y recibirá acceso a la grabación.</p></div>
     </div>
   </div>
 </section>
@@ -675,10 +741,10 @@
 <!-- ====== 13. CTA FINAL ====== -->
 <section class="cta-final">
   <div class="container">
-    <h2 class="reveal">Devuélvele horas a tu cierre contable</h2>
+    <h2 class="reveal">Devuélvale horas a su cierre contable</h2>
     <p class="reveal">Webinar gratuito · 70 minutos en dos pistas · Jueves 20 de agosto, 6:00 PM (El Salvador) · Google Meet.</p>
     <a href="https://forms.gle/E3eLmRykVmDQrvNb9" class="btn-cta" id="btn-registro-final" target="_blank" rel="noopener">Reservar mi cupo gratuito</a>
-    <p class="micro">Registro disponible hasta el 19 de agosto · ¿No podrás conectarte en vivo? Regístrate igual y te enviamos la grabación.</p>
+    <p class="micro">Registro disponible hasta el 19 de agosto · ¿No podrá conectarse en vivo? Regístrese igual y le enviamos la grabación.</p>
   </div>
 </section>
 
@@ -686,7 +752,7 @@
 <footer>
   <div class="container">
     <p class="firma">Odoo Factura IA, una solución de Grupo Consiti.</p>
-    <p>© 2026 Grupo Consiti S.A. de C.V. — Odoo Partner en El Salvador.</p>
+    <p>© 2026 Grupo Consiti S.A. de C.V. · Odoo Partner en El Salvador.</p>
     <p style="margin-top:14px;"><img src="assets/503local-blanco.png" alt="503 Local by mmusa" style="height:30px;width:auto;opacity:0.85;display:inline-block;" /></p>
     <p>503 Local, Partner Estratégico de Crecimiento y Visibilidad Digital.</p>
   </div>
