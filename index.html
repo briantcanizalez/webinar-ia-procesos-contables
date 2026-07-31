@@ -86,8 +86,10 @@
   #particles-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
   .hero-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 56px; align-items: center; position: relative; z-index: 2; max-width: 1400px; margin: 0 auto; }
 
-  .hero-brands { font-size: 13px; color: var(--gris-texto); margin-bottom: 16px; }
-  .hero-brands b { color: var(--blanco); font-weight: 600; }
+  /* Solo móvil. En escritorio la barra superior ya muestra Consiti, Odoo Factura IA
+     y 503 Local, así que esta línea repetía lo mismo dos veces seguidas. Se deja
+     para móvil porque ahí la barra no alcanza para el logo de 503 Local */
+  .hero-brands { display: none; color: var(--gris-texto); }
   .hero-brands .ally { color: var(--lavanda); }
 
   .tag-webinar { display: inline-block; background: rgba(82, 22, 231, 0.25); color: var(--lavanda); font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(82, 22, 231, 0.5); margin-bottom: 22px; letter-spacing: 0.5px; text-transform: uppercase; }
@@ -284,13 +286,13 @@
        a .ally-logo, así que hay que ocultarlo con un selector igual de fuerte */
     .ally-tag, .partner-mark .ally-logo { display: none; }
 
-    /* ---- Hero: la barra superior ya muestra Consiti + Odoo Factura IA, así que
-       de la línea de marcas solo queda la alianza. La lista de metadatos se
-       oculta porque la tarjeta 20 AGO ya trae fecha, hora, Meet y duración ---- */
+    /* ---- Hero: acá sí aparece la línea de la alianza, porque la barra superior
+       oculta el logo de 503 Local (los tres logos no caben). La lista de
+       metadatos se oculta porque la tarjeta 20 AGO ya trae fecha, hora, Meet
+       y duración ---- */
     .hero { padding: 26px 0 30px; }
     .hero-grid { grid-template-columns: 1fr; gap: 24px; text-align: center; }
-    .hero-brands { font-size: 12px; margin-bottom: 12px; }
-    .hero-brands .brands-largo { display: none; }
+    .hero-brands { display: block; font-size: 12px; margin-bottom: 12px; }
     .hero h1 { font-size: 28px; letter-spacing: -0.4px; margin-bottom: 14px; line-height: 1.2; }
     .hero-sub { font-size: 15px; margin: 0 auto 20px; }
     .hero-meta { display: none; }
@@ -424,7 +426,7 @@
   <div class="container" style="position: relative; z-index: 2;">
     <div class="hero-grid">
       <div>
-        <p class="hero-brands"><span class="brands-largo"><b>Grupo Consiti</b> presenta <b>Odoo Factura IA</b> · </span><span class="ally">En alianza estratégica con 503 Local</span></p>
+        <p class="hero-brands"><span class="ally">En alianza estratégica con 503 Local</span></p>
         <span class="tag-webinar">IA Aplicada a Procesos Contables</span>
         <h1>Su plataforma ya le muestra lo que vende. <span class="acento">¿Y lo que gasta?</span></h1>
         <p class="hero-sub">Dos bloques: primero para el <strong style="color:#fff;">dueño</strong>, que verá gastos, proveedores y margen real; después para su <strong style="color:#fff;">contador</strong>, que irá del JSON del DTE al Anexo 3.</p>
