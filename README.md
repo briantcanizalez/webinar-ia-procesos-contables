@@ -1,10 +1,10 @@
 # Webinar — IA Aplicada a Procesos Contables
 
-Landing de registro del webinar **"IA Aplicada a Procesos Contables — Sesión 1: Carga de Compras con IA"** de Odoo Factu IA · Grupo Consiti.
+Landing de registro del webinar **"IA Aplicada a Procesos Contables — Sesión 1: Carga de Compras con IA"** de Factu IA · Grupo Consiti.
 
 - **Fecha:** lunes 3 de agosto de 2026, 6:00 PM (El Salvador)
 - **CTA:** registro vía Google Form
-- **Audiencia:** contadores de clientes de Odoo Factu IA
+- **Audiencia:** contadores de clientes de Factu IA
 
 ## Deploy en Vercel
 
